@@ -64,9 +64,8 @@ public class Book {
     }
 
     @Override
-
-
-
-
-
+    public int hashCode() {
+        return Object.hash(getNameOfTheBook(), getAuthorOfTheBook(), getIsNumberOfTheBook());
     }
+    }
+
