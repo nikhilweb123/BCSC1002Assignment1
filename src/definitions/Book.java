@@ -9,60 +9,53 @@ package definitions;
 import java.util.Objects;
 
 public class Book {
-    private String nameOfBook;
-    private String nameOfAuthorOfBook;
-    private String ISBNNumberOfBook;
-    private boolean isBookAvailable;
+    private String nameOfTheBook;
+    private String nameOfTheAuthorOfTheBook;
+    private String thirteenDigitISBNNumberOfTheBook;
 
-    public Book(String nameOfBook, String nameOfAuthorOfBook, String ISBNNumberOfBook, boolean isBookAvailable) {
-        this.nameOfBook = nameOfBook;
-        this.nameOfAuthorOfBook = nameOfAuthorOfBook;
-        this.ISBNNumberOfBook = ISBNNumberOfBook;
-        this.isBookAvailable = isBookAvailable;
+    // Parameterized Constructor
+    public Book(String nameOfTheBook, String nameOfTheAuthorOfTheBook, String thirteenDigitISBNNumberOfTheBook) {
+        this.nameOfTheBook = nameOfTheBook;
+        this.nameOfTheAuthorOfTheBook = nameOfTheAuthorOfTheBook;
+        this.thirteenDigitISBNNumberOfTheBook = thirteenDigitISBNNumberOfTheBook;
     }
 
+    // Non-Parameterized Constructor
     public Book() {
-        this.nameOfBook = "Let Us C";
-        this.nameOfAuthorOfBook = "Yashwant Kanetkar";
-        this.ISBNNumberOfBook = "45632ALK45";
-        this.isBookAvailable = false;
+        this.nameOfTheBook = null;
+        this.nameOfTheAuthorOfTheBook = null;
+        this.thirteenDigitISBNNumberOfTheBook = null;
     }
 
-    public String getNameOfBook() {
-        return nameOfBook;
+    public String getNameOfTheBook() {
+        return nameOfTheBook;
     }
 
-    public void setNameOfBook(String nameOfBook) {
-        this.nameOfBook = nameOfBook;
+    public void setNameOfTheBook(String nameOfTheBook) {
+        this.nameOfTheBook = nameOfTheBook;
     }
 
-    public String getNameOfAuthorOfBook() {
-        return nameOfAuthorOfBook;
+    public String getNameOfTheAuthorOfTheBook() {
+        return nameOfTheAuthorOfTheBook;
     }
 
-    public void setNameOfAuthorOfBook(String nameOfAuthorOfBook) {
-        this.nameOfAuthorOfBook = nameOfAuthorOfBook;
+    public void setNameOfTheAuthorOfTheBook(String nameOfTheAuthorOfTheBook) {
+        this.nameOfTheAuthorOfTheBook = nameOfTheAuthorOfTheBook;
     }
 
-    public String getISBNNumberOfBook() {
-        return ISBNNumberOfBook;
+    public String getThirteenDigitISBNNumberOfTheBook() {
+        return thirteenDigitISBNNumberOfTheBook;
     }
 
-    public void setISBNNumberOfBook(String ISBNNumberOfBook) {
-        this.ISBNNumberOfBook = ISBNNumberOfBook;
-    }
-
-    public boolean isBookAvailable() {
-        return isBookAvailable;
-    }
-
-    public void setBookAvailable(boolean bookAvailable) {
-        this.isBookAvailable = bookAvailable;
+    public void setThirteenDigitISBNNumberOfTheBook(String thirteenDigitISBNNumberOfTheBook) {
+        this.thirteenDigitISBNNumberOfTheBook = thirteenDigitISBNNumberOfTheBook;
     }
 
     @Override
     public String toString() {
-        return "Name of the book: " + getNameOfBook() + "Name of the author of the book: " + getNameOfAuthorOfBook() + "ISBn Number of the code: " + getISBNNumberOfBook() + "Is book available? " + isBookAvailable();
+        return "Book Name: " + getNameOfTheBook() + ", " +
+                "Author Name: " + getNameOfTheAuthorOfTheBook() + ", " +
+                "13-Digit ISBN Number: " + getThirteenDigitISBNNumberOfTheBook() + ".";
     }
 
     @Override
@@ -70,14 +63,13 @@ public class Book {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Book book = (Book) o;
-        return isBookAvailable() == book.isBookAvailable() &&
-                Objects.equals(getNameOfBook(), book.getNameOfBook()) &&
-                Objects.equals(getNameOfAuthorOfBook(), book.getNameOfAuthorOfBook()) &&
-                Objects.equals(getISBNNumberOfBook(), book.getISBNNumberOfBook());
+        return Objects.equals(getNameOfTheBook(), book.getNameOfTheBook()) &&
+                Objects.equals(getNameOfTheAuthorOfTheBook(), book.getNameOfTheAuthorOfTheBook()) &&
+                Objects.equals(getThirteenDigitISBNNumberOfTheBook(), book.getThirteenDigitISBNNumberOfTheBook());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getNameOfBook(), getNameOfAuthorOfBook(), getISBNNumberOfBook(), isBookAvailable());
+        return Objects.hash(getNameOfTheBook(), getNameOfTheAuthorOfTheBook(), getThirteenDigitISBNNumberOfTheBook());
     }
 }
