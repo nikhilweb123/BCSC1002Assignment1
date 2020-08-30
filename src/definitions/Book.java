@@ -6,66 +6,78 @@
  * */
 package definitions;
 
-import java.util.function.ObjLongConsumer;
+import java.util.Objects;
 
 public class Book {
-    private String nameOfTheBook;
-    private String authorOfTheBook;
-    private String isNumberOfTheBook;
+    private String nameOfBook;
+    private String nameOfAuthorOfBook;
+    private String ISBNNumberOfBook;
+    private boolean isBookAvailable;
 
-    public Book(String nameOfTheBook, String authorOfTheBook, String isNumberOfTheBook)
-    this.nameOfTheBook =nameOfTheBook
-    this.authorOfTheBook =authorOfTheBook
-    this.isNumberOfTheBook =isNumberOfTheBook
-}
-
-    public String getNameOfTheBook() {
-        return nameOfTheBook;
+    public Book(String nameOfBook, String nameOfAuthorOfBook, String ISBNNumberOfBook, boolean isBookAvailable) {
+        this.nameOfBook = nameOfBook;
+        this.nameOfAuthorOfBook = nameOfAuthorOfBook;
+        this.ISBNNumberOfBook = ISBNNumberOfBook;
+        this.isBookAvailable = isBookAvailable;
     }
 
-    public Void setNameOfTheBook(String nameOfTheBook) {
-        this.nameOfTheBook = nameOfTheBook;
-
+    public Book() {
+        this.nameOfBook = "Let Us C";
+        this.nameOfAuthorOfBook = "Yashwant Kanetkar";
+        this.ISBNNumberOfBook = "45632ALK45";
+        this.isBookAvailable = false;
     }
 
-    public String getAuthorOfTheBook() {
-        return authorOfTheBook;
-
+    public String getNameOfBook() {
+        return nameOfBook;
     }
 
-    public void setAuthorOfTheBook(String authorOfTheBook) {
-        this.authorOfTheBook = authorOfTheBook;
+    public void setNameOfBook(String nameOfBook) {
+        this.nameOfBook = nameOfBook;
     }
 
-    public String getIsNumberOfTheBook() {
-        return isNumberOfTheBook;
+    public String getNameOfAuthorOfBook() {
+        return nameOfAuthorOfBook;
     }
 
-    public void setIsNumberOfTheBook(String isNumberOfTheBook) {
-        this.isNumberOfTheBook = isNumberOfTheBook;
+    public void setNameOfAuthorOfBook(String nameOfAuthorOfBook) {
+        this.nameOfAuthorOfBook = nameOfAuthorOfBook;
+    }
+
+    public String getISBNNumberOfBook() {
+        return ISBNNumberOfBook;
+    }
+
+    public void setISBNNumberOfBook(String ISBNNumberOfBook) {
+        this.ISBNNumberOfBook = ISBNNumberOfBook;
+    }
+
+    public boolean isBookAvailable() {
+        return isBookAvailable;
+    }
+
+    public void setBookAvailable(boolean bookAvailable) {
+        this.isBookAvailable = bookAvailable;
     }
 
     @Override
     public String toString() {
-        return " About the book --- " + "\n" +
-                "Name of the book ->'" + nameOfTheBook + '\'' + "\n" +
-                "Author of the book -> '" + authorOfTheBook + '\'' + "\n" +
-                "Number of the book -> '" + isNumberOfTheBook + '\'';
+        return "Name of the book: " + getNameOfBook() + "Name of the author of the book: " + getNameOfAuthorOfBook() + "ISBn Number of the code: " + getISBNNumberOfBook() + "Is book available? " + isBookAvailable();
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null) ||getClass() != obj.getClass())return false;
-        Book book = (Book) obj;
-        return Object.equals(getNameOfTheBook(), book.getNameOfTheBook()) &&
-                Object.equals(getAuthorOfTheBook(), book.getAuthorOfTheBook())&&
-                Object.equals(getIsNumberOfTheBook(), book.getIsNumberOfTheBook());
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Book book = (Book) o;
+        return isBookAvailable() == book.isBookAvailable() &&
+                Objects.equals(getNameOfBook(), book.getNameOfBook()) &&
+                Objects.equals(getNameOfAuthorOfBook(), book.getNameOfAuthorOfBook()) &&
+                Objects.equals(getISBNNumberOfBook(), book.getISBNNumberOfBook());
     }
 
     @Override
     public int hashCode() {
-        return Object.hash(getNameOfTheBook(), getAuthorOfTheBook(), getIsNumberOfTheBook());
+        return Objects.hash(getNameOfBook(), getNameOfAuthorOfBook(), getISBNNumberOfBook(), isBookAvailable());
     }
-    }
-
+}
